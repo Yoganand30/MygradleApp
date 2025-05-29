@@ -7,4 +7,23 @@ pipeline{
   stages{
     stage('checkout'){
       steps{
-        git branch:'master',url:
+        git branch:'master',url:'https://github.com/Yoganand30/MygradleApp.git'
+      }
+    }
+    stage('build'){
+      steps{
+        sh 'gradle run'
+      }
+    }
+    stage('test'){
+      steps{
+        sh 'gradle test'
+      }
+    }
+    stage('run'){
+      steps{
+        sh 'gradle run'
+      }
+    }
+  }
+}
