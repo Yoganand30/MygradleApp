@@ -1,27 +1,32 @@
-pipeline{
+pipeline {
   agent any
-  tools{
+
+  tools {
     gradle 'Gradle'
     jdk 'JDK'
   }
-  stages{
-    stage('checkout'){
-      steps{
-        git branch:'master',url:'https://github.com/Yoganand30/MygradleApp.git'
+
+  stages {
+    stage('checkout') {
+      steps {
+        git branch: 'master', url: 'https://github.com/Yoganand30/MygradleApp.git'
       }
     }
-    stage('build'){
-      steps{
+
+    stage('build') {
+      steps {
         sh 'gradle build'
       }
     }
-    stage('test'){
-      steps{
+
+    stage('test') {
+      steps {
         sh 'gradle test'
       }
     }
-    stage('run'){
-      steps{
+
+    stage('run') {
+      steps {
         sh 'gradle run'
       }
     }
